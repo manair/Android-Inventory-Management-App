@@ -15,7 +15,17 @@ import  com.example.android.inventorymanagement.database.StorageContract.Storage
 
 public class LocationProvider extends ContentProvider{
 
+    public static final String LOG_TAG = InventoryProvider.class.getSimpleName();
+    private static final int INVENTORY = 100;
+    private static final int INVENTORY_ID = 101;
+    private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
+    static  {
+        sUriMatcher.addURI(StorageContract.CONTENT_AUTHORITY, StorageContract.PATH_INVENTORY, INVENTORY);
+        sUriMatcher.addURI(StorageContract.CONTENT_AUTHORITY, StorageContract.PATH_INVENTORY + "/#", INVENTORY_ID);
+    }
+
+    private InventoryDbHelper inventoryDbHelper;
     @Override
     public boolean onCreate() {
         return false;
