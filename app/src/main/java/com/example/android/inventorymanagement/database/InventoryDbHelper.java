@@ -21,10 +21,10 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
                         + ProductEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                         + ProductEntry.PRODUCT_NAME + " TEXT NOT NULL, "
                         + ProductEntry.QUANTITY + " INTEGER DEFAULT 0, "
-                        + ProductEntry.PRICE + " INTEGER NOT NULL, "
+                        + ProductEntry.PRICE + " INTEGER, "
                         + ProductEntry.IMAGE + " BLOB, "
                         + ProductEntry.SUPPLIER_NAME + " TEXT NOT NULL, "
-                        + ProductEntry.SUPPLIER_PHONE + " TEXT NOT NULL);";
+                        + ProductEntry.SUPPLIER_PHONE + " TEXT);";
         db.execSQL(SQL_CREATE_ENTRIES);
     }
 
